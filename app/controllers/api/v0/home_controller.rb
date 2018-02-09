@@ -1,5 +1,5 @@
-class HomeController < ApplicationController
-  before_filter :authenticate_user!
+class Api::V0::HomeController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     render :json, {congrats: 'it works!'}

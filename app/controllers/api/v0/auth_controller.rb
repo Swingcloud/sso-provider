@@ -1,9 +1,9 @@
-class AuthController < Api::V0::ApplicationController
+class Api::V0::AuthController < Api::V0::ApplicationController
   # This is our new function that comes before Devise's one
-  before_filter :authenticate_user_from_token!, :except => [:access_token]
+  before_action :authenticate_user_from_token!, :except => [:access_token]
 
-  before_filter :authenticate_user!, :except => [:access_token]
-  skip_before_filter :verify_authenticity_token, :only => [:access_token]
+  before_action :authenticate_user!, :except => [:access_token]
+  skip_before_action :verify_authenticity_token, :only => [:access_token]
 
   def authorize
     # Note: this method will be called when the user

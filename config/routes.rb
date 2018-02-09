@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       match '/auth/sso/access_token' => 'auth#access_token', via: :all
       match '/auth/sso/user' => 'auth#user', via: :all
       match '/oauth/token' => 'auth#access_token', via: :all
-      get 'home'
+      get 'home' => 'home#index'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
