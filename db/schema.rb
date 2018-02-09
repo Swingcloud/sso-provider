@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209034916) do
+ActiveRecord::Schema.define(version: 20180209035123) do
+
+  create_table "access_grants", force: :cascade do |t|
+    t.string "code"
+    t.string "access_token"
+    t.string "refresh_token"
+    t.datetime "access_token_expires_at"
+    t.integer "user_id"
+    t.integer "client_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "app_id"
+    t.string "app_secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
